@@ -4,6 +4,9 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.KeyEvent;
 import koneksi.koneksi;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.view.JasperViewer;
 
 /*@author Ahmad Nur Latif P */
 
@@ -88,6 +91,7 @@ private DefaultTableModel tabmode;
         jLabel1 = new javax.swing.JLabel();
         cari_mahasiswa = new javax.swing.JTextField();
         bcari = new javax.swing.JButton();
+        print = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(0, 153, 153));
 
@@ -345,6 +349,13 @@ private DefaultTableModel tabmode;
                 .addGap(0, 14, Short.MAX_VALUE))
         );
 
+        print.setText("PRINT");
+        print.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                printActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -366,6 +377,10 @@ private DefaultTableModel tabmode;
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
             .addComponent(form, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(290, 290, 290)
+                .addComponent(print)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -389,7 +404,9 @@ private DefaultTableModel tabmode;
                         .addComponent(bkeluar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(81, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addComponent(print)
+                .addGap(19, 19, 19))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -562,6 +579,15 @@ int ok = JOptionPane.showConfirmDialog(null,"Apakah benar ingin dihapus?", "Peri
     }
     }//GEN-LAST:event_cari_mahasiswaKeyPressed
 
+    private void printActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printActionPerformed
+   try {
+        JasperPrint jp = JasperFillManager.fillReport(getClass().getResourceAsStream("report1.jasper"), null, koneksi.koneksi);
+        JasperViewer.viewReport(jp, false);
+        } catch(Exception e) {
+            JOptionPane.showMessageDialog(this, e);
+        }
+    }//GEN-LAST:event_printActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea alamat;
@@ -587,6 +613,7 @@ int ok = JOptionPane.showConfirmDialog(null,"Apakah benar ingin dihapus?", "Peri
     private javax.swing.ButtonGroup jkl;
     private javax.swing.JTextField nama;
     private javax.swing.JTextField npm;
+    private javax.swing.JButton print;
     private javax.swing.JTextField prodi;
     private javax.swing.JRadioButton rlaki;
     private javax.swing.JRadioButton rperempuan;

@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="adeb593b-cc71-427a-a368-c930ddaec9c6">
+	<property name="ireport.zoom" value="1.000000000000001"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<queryString language="SQL">
+		<![CDATA[select * from tb_mahasiswa;]]>
+	</queryString>
+	<field name="npm" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nama" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="prodi" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="telp" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="jenis" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="alamat" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="136" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="164" y="0" width="383" height="62" uuid="db216d05-a9f2-4a4f-bc4d-16e30d32d940"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="26" isBold="false" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[DATA MAHASISWA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="164" y="62" width="383" height="42" uuid="d0b1a138-b989-4c1e-acbd-22a24f69d0be"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Mahasiswa R6R 2025]]></text>
+			</staticText>
+			<image>
+				<reportElement x="16" y="0" width="134" height="120" uuid="7669fea0-3be5-46da-bf34-c1e0b64c6b9b"/>
+				<imageExpression><![CDATA["C:\\Users\\Ahmad Nur Latif P\\OneDrive\\Documents\\NetBeansProjects\\data_mahasiswa\\src\\MAHASISWA\\ui.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="802" height="1" uuid="2ec7df3c-c047-42c7-aff6-b8d389f1fb68"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="0" y="0" width="133" height="15" forecolor="#736343" uuid="1b82382d-287a-4b3c-bea4-205116415922"/>
+				<text><![CDATA[npm]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="133" y="0" width="133" height="15" forecolor="#736343" uuid="67082f5e-e42e-443b-a9bf-5e8921e54d62"/>
+				<text><![CDATA[nama]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="266" y="0" width="133" height="15" forecolor="#736343" uuid="9b919373-b359-4a77-81f1-b40aef2f0666"/>
+				<text><![CDATA[prodi]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="399" y="0" width="133" height="15" forecolor="#736343" uuid="2c813f1d-d674-42e3-b381-fc00672cbf0d"/>
+				<text><![CDATA[telp]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="532" y="0" width="133" height="15" forecolor="#736343" uuid="8f14fb2d-3beb-4ef1-a65b-455a6ebcc231"/>
+				<text><![CDATA[jenis]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="665" y="0" width="133" height="15" forecolor="#736343" uuid="0661ac02-78d3-448b-97f6-570a846b192c"/>
+				<text><![CDATA[alamat]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="802" height="15" uuid="c0184ee2-333b-4b34-bc41-c9744b2b60e0"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="0" y="0" width="133" height="15" uuid="41b965f8-543c-4ccc-9dc8-3b8b00417774"/>
+					<textFieldExpression><![CDATA[$F{npm}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="133" y="0" width="133" height="15" uuid="c80a67a8-8d85-4fab-92ed-c245181e0b46"/>
+					<textFieldExpression><![CDATA[$F{nama}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="266" y="0" width="133" height="15" uuid="f4622644-031f-4878-a382-bfda92c0afee"/>
+					<textFieldExpression><![CDATA[$F{prodi}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="399" y="0" width="133" height="15" uuid="3f0bc255-60f5-42a9-adab-560449ef39b6"/>
+					<textFieldExpression><![CDATA[$F{telp}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="532" y="0" width="133" height="15" uuid="37e672ca-8ba5-47f1-8595-bbff0a3ef437"/>
+					<textFieldExpression><![CDATA[$F{jenis}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="665" y="0" width="133" height="15" uuid="af80cbd4-3bcf-4a06-b4ce-5dd5b5a4a754"/>
+					<textFieldExpression><![CDATA[$F{alamat}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="6" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="802" height="1" uuid="506b917a-7933-45b6-9d47-2007c6de5e99"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="26" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="-21" y="1" width="843" height="24" forecolor="#D0B48E" backcolor="#F2EBDF" uuid="6aa48ca8-76a0-48d9-8d94-9299f94eae26"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="783" y="1" width="40" height="20" forecolor="#736343" uuid="51f3332d-394e-47ca-9a23-12d8eb4024d8"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="703" y="1" width="80" height="20" forecolor="#736343" uuid="92506bb3-3036-4d3f-8b83-f998dd256477"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="22" y="1" width="197" height="20" forecolor="#736343" uuid="32c64d6d-eaa5-48db-acb7-8295709ebbce"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
